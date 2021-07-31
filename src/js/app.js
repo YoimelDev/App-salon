@@ -1,10 +1,31 @@
+let pagina = 1;
+
 document.addEventListener('DOMContentLoaded', () => {
     iniciarApp();
 })
 
-function iniciarApp() {
-    console.log('Iniciando app');
+function iniciarApp() {    
     mostrarServicios();
+
+    // Resalta el Div Actual segundo el tab al que se presiona
+
+    // Oculta o muestra una seccion segun el tab al que se presiona
+    cambiarSeccion();
+}
+
+function cambiarSeccion() {
+    const enlaces = document.querySelectorAll('.tabs button');
+
+    enlaces.forEach( enlace => {
+        enlace.addEventListener('click', e => {
+            e.preventDefault();
+
+            pagina = parseInt(e.target.dataset.paso);
+
+            const seccion = document.querySelector(`#paso-${pagina}`);
+            seccion.classList.add('mostrar-seccion');
+        })
+    })
 }
 
 async function mostrarServicios() {
