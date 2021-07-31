@@ -1,6 +1,7 @@
 .listado-servicios {
 	@include tablet {
 		@include grid(2, 2rem);
+		margin-bottom: 1.5rem;
 	}
 
 	.servicio {
@@ -8,6 +9,11 @@
 		padding: $separacion / 2;
 		background-color: $blanco;
 		border-radius: 1rem;
+		transition: all 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+
+		&:hover {
+			cursor: pointer;
+		}
 
 		@include tablet {
 			margin-bottom: 0;
@@ -26,6 +32,13 @@
 			margin: 0;
 			font-size: 3rem;
 			font-weight: $bold;
+		}
+
+		&.seleccionado {
+			background-color: $azul;
+			p {
+				color: $blanco;
+			}
 		}
 	}
 }
