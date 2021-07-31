@@ -25,8 +25,10 @@ function cambiarSeccion() {
     enlaces.forEach( enlace => {
         enlace.addEventListener('click', e => {
             e.preventDefault();
-
             pagina = parseInt(e.target.dataset.paso);
+
+            // Eliminar mostrar-seccion de la seccion anterior
+            document.querySelector('.mostrar-seccion').classList.remove('mostrar-seccion');
 
             const seccion = document.querySelector(`#paso-${pagina}`);
             seccion.classList.add('mostrar-seccion');
