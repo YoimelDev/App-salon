@@ -8,9 +8,15 @@ function iniciarApp() {
     mostrarServicios();
 
     // Resalta el Div Actual segundo el tab al que se presiona
+    mostrarSeccion();
 
     // Oculta o muestra una seccion segun el tab al que se presiona
     cambiarSeccion();
+}
+
+function mostrarSeccion() {
+    const seccionActual = document.querySelector(`#paso-${pagina}`);
+    seccionActual.classList.add('mostrar-seccion');
 }
 
 function cambiarSeccion() {
