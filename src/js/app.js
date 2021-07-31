@@ -12,6 +12,11 @@ function iniciarApp() {
 
     // Oculta o muestra una seccion segun el tab al que se presiona
     cambiarSeccion();
+
+    // Paginacion siguiente y anterior
+    paginaSiguiente();
+
+    paginaAnterior();
 }
 
 function mostrarSeccion() {
@@ -106,4 +111,22 @@ function seleccionarServicio(e) {
         elemento.classList.add('seleccionado');
     }
     
+}
+
+function paginaSiguiente() {
+    const paginaSiguiente = document.querySelector('#siguiente');
+    paginaSiguiente.addEventListener('click', () => {
+        pagina++; 
+        
+        console.log(pagina);
+    })
+}
+
+function paginaAnterior() {
+    const paginaAnterior = document.querySelector('#anterior');
+    paginaAnterior.addEventListener('click', () => {
+        pagina--; 
+        
+        console.log(pagina);
+    })
 }
