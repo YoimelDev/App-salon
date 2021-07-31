@@ -142,6 +142,7 @@ function botonesPaginador() {
 
     if(pagina === 1) {
         paginaAnterior.classList.add('ocultar');
+        paginaSiguiente.classList.remove('ocultar');
     } else if (pagina === 3) {
         paginaSiguiente.classList.add('ocultar');
         paginaAnterior.classList.remove('ocultar');
