@@ -36,6 +36,9 @@ function iniciarApp() {
 
     // Almacena la fecha de la cita en el objeto
     fechaCita();
+
+    // Desabilita dias pasados
+    deshabilitarFechaAnterior();
 }
 
 function mostrarSeccion() {
@@ -273,4 +276,18 @@ function fechaCita() {
             console.log(cita);
         }
     })
+}
+
+function deshabilitarFechaAnterior() {
+    const inputFecha = document.querySelector('#fecha');
+    const fechaAhora = new Date();
+    const year = fechaAhora.getUTCFullYear();
+    const mes = fechaAhora.getMonth() + 1;
+    const dia = fechaAhora.getDay() + 1;
+
+    // Formato deseado: AAAA-MM-DD
+
+    const fechaDeshabilitar = `${year}-${mes < 10 ? `0${mes}` : mes}-${dia < 10 ? `0${dia}` : dia}`;
+
+    inputFecha.min = fechaDeshabilitar;
 }
