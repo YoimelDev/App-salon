@@ -33,6 +33,9 @@ function iniciarApp() {
 
     // Almacena el nombre de la cita en el objeto
     nombreCita();
+
+    // Almacena la fecha de la cita en el objeto
+    fechaCita();
 }
 
 function mostrarSeccion() {
@@ -253,4 +256,21 @@ function mostrarAlerta(mensaje, tipo) {
     setTimeout(() => {
         alerta.remove();
     }, 3000)
+}
+
+function fechaCita() {
+    const fechaInput = document.querySelector('#fecha');
+    fechaInput.addEventListener('input', e => {
+        const dia = new Date(e.target.value).getUTCDay();
+      
+        if([0, 6].includes(dia)) {
+            e.preventDefault();
+            fechaInput.value = '';
+            mostrarAlerta('Fines de Semana no son permitidos', 'error')
+        } else {
+            cita.fecha = fechaInput.value;
+
+            console.log(cita);
+        }
+    })
 }
