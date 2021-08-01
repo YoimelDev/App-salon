@@ -39,6 +39,9 @@ function iniciarApp() {
 
     // Desabilita dias pasados
     deshabilitarFechaAnterior();
+
+    // Almacena la hora de la cita en el objeto
+    horaCita();
 }
 
 function mostrarSeccion() {
@@ -152,16 +155,12 @@ function seleccionarServicio(e) {
 function eliminarServicio(id) {
     const {servicios} = cita;
     cita.servicios = servicios.filter(servicio => servicio.id !== id);
-
-    console.log(cita);
 }
 
 function agregarServicio(servicioObj) {
     const {servicios} = cita;
 
     cita.servicios = [...servicios, servicioObj];
-
-    console.log(cita);
 }
 
 function paginaSiguiente() {
@@ -271,9 +270,7 @@ function fechaCita() {
             fechaInput.value = '';
             mostrarAlerta('Fines de Semana no son permitidos', 'error')
         } else {
-            cita.fecha = fechaInput.value;
-
-            console.log(cita);
+            cita.fecha = fechaInput.value;            
         }
     })
 }
@@ -290,4 +287,22 @@ function deshabilitarFechaAnterior() {
     const fechaDeshabilitar = `${year}-${mes < 10 ? `0${mes}` : mes}-${dia < 10 ? `0${dia}` : dia}`;
 
     inputFecha.min = fechaDeshabilitar;
+}
+
+function horaCita() {
+    const inputHora = document.querySelector('#hora');
+
+    inputHora.addEventListener('input', e => {        
+        const horaCita = e.target.value;
+        const hora = horaCita.split(':');
+
+        if(hora[0] < 9 || hora[0] > 18) {
+            mostrarAlerta('Hora no valida', 'error')
+            setTimeout(() => {
+                inputHora.value = '';
+            }, 3000)            
+        } else {
+            cita.hora = horaCita;
+        }
+    })
 }
