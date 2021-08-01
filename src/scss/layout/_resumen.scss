@@ -18,6 +18,10 @@
 	}
 
 	.resumen-servicios {
+		h3 {
+			margin: $separacion / 2 0;
+		}
+
 		.contenedor-servicio {
 			margin-bottom: 2rem;
 			padding-bottom: 2rem;

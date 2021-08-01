@@ -225,6 +225,9 @@ function mostrarResumen() {
         return;
     }
 
+    const headingCita = document.createElement('H3');
+    headingCita.textContent = 'Resumen de Cita';
+
     // Mostrar el resumen
     const nombreCita = document.createElement('P');
     nombreCita.innerHTML = `<span>Nombre: </span>${nombre}`;
@@ -237,6 +240,11 @@ function mostrarResumen() {
 
     const serviciosCita = document.createElement('DIV');
     serviciosCita.classList.add('resumen-servicios');
+
+    const headingServicios = document.createElement('H3');
+    headingServicios.textContent = 'Resumen de Servicios';
+
+    serviciosCita.appendChild(headingServicios);
 
     // Iterar sobre el arreglo de servicios
     servicios.forEach(servicio => {
@@ -259,6 +267,7 @@ function mostrarResumen() {
         serviciosCita.appendChild(contenedorServicio);
     })
 
+    resumenDiv.appendChild(headingCita);
     resumenDiv.appendChild(nombreCita);
     resumenDiv.appendChild(fechaCita);
     resumenDiv.appendChild(horaCita);
