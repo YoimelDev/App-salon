@@ -219,9 +219,38 @@ function nombreCita() {
     
         // Validacion de que nombreTexto debe tener algo
         if (nombreTexto === '' || nombreTexto.length < 3) {
-            console.log('nombre no valido');
+            mostrarAlerta('Nombre no valido', 'error');
         } else {
+            const alerta = document.querySelector('.alerta');
+            if(alerta) {
+                alerta.remove();
+            }
             cita.nombre = nombreTexto;
         }
     })
+}
+
+function mostrarAlerta(mensaje, tipo) {
+    // Si hay una alerta previa, no agregar otra
+    const alertaPrevia = document.querySelector('.alerta');
+    if(alertaPrevia) {
+        return;
+    }
+
+    const alerta = document.createElement('DIV');
+    alerta.textContent = mensaje;
+    alerta.classList.add('alerta');
+
+    if(tipo === 'error'){
+        alerta.classList.add('error');
+    }
+
+    // Insertar en el Html
+    const formulario = document.querySelector('.formulario');
+    formulario.appendChild(alerta);
+
+    // Eliminar la alerta despues de 3segundos
+    setTimeout(() => {
+        alerta.remove();
+    }, 3000)
 }
