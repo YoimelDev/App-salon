@@ -11,14 +11,14 @@ You can see the result here → [App Peluqueria](http://appsalon.infinityfreeapp
 <details>
     <summary>🖥️ Desktop version</summary>
 
-![](build/img/)
+![](build/img/desktop.webp)
 
 </details>
 
 <details>
     <summary>📱 Mobile version</summary>
 
-![](build/img/)
+![](build/img/mobile.webp)
 
 </details>
 
